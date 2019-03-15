@@ -1,5 +1,5 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import * as fs from "fs";
+import * as path from "path";
 
 declare global {
   namespace jest {
@@ -14,11 +14,11 @@ interface Config {
 }
 
 let defaultConfig: Config = {
-  path: './ts/test/handler/approved/',
+  path: "./ts/test/handler/approved/",
 };
 
 function checkHTMLApproval(this: jasmine.MatchersUtil | any, text: string) {
-  const filePath = `${defaultConfig.path + this.currentTestName.replace(/\W+/g, '_')}`;
+  const filePath = `${defaultConfig.path + this.currentTestName.replace(/\W+/g, "_")}`;
 
   try {
     const approvedFile = fs.readFileSync(`${filePath}.approved.html`);
@@ -59,7 +59,7 @@ mv '${absolutePath}.actual.html' '${absolutePath}.approved.html'
       pass: true,
     };
   } catch (e) {
-    if (e.code && e.code === 'ENOENT') {
+    if (e.code && e.code === "ENOENT") {
       fs.writeFileSync(`${filePath}.actual.html`, text);
 
       const absolutePath = path.resolve(filePath);

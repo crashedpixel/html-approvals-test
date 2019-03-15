@@ -20,18 +20,4 @@ describe('HTML Approval Tests', () => {
 
     expect(html).checkHTMLApproval();
   });
-
-  test('Check HTML for an .approval that has changed', () => {
-    const html = `<html>
-    <head>
-        <title>Document: ${Math.random()}</title>
-    </head>
-    <body>
-        <h1>Test Page</h1>
-        <p>This is a test page for testing purposes</p>
-    </body>
-</html>`;
-
-    expect(html).checkHTMLApproval();
-  });
 });
